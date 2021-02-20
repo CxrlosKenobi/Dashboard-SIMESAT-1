@@ -23,7 +23,7 @@ SAT-LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/16
 
 app = dash.Dash(
 	__name__,
-    external_stylesheets=[dbc.themes.BOOTSTRAP, FA],
+    external_stylesheets=[dbc.themes.BOOTSTRAP, SAT-LOGO],
 	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
 server = app.server
