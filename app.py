@@ -31,28 +31,17 @@ app.title = "📡 SIMES-1"
 
 app.layout = html.Div([
     html.Div([
-
-    ]),
+        html.Div([
+            html.P('Container title')
+        ], className='sign'),
+        html.Div([
+            html.H1('Text')
+        ], className='un'),
+    ], className='main'),
     html.Div([
         html.Img(src=app.get_asset_url('SIMES_white.png'), className='logo')
     ])
 ])
 
-"""
-app.layout = html.Div([
-    html.H2('Hello world!'),
-    dcc.Dropdown(
-        id='dropdown',
-        options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
-        value='LA'
-    ),
-    html.Div(id='display-value')
-])
-@app.callback(dash.dependencies.Output('display-value', 'children'),
-[dash.dependencies.Input('dropdown', 'value')])
-
-def display_value(value):
-    return f'You have selected {value}'
-"""
 if __name__ == '__main__':
     app.run_server(debug=True)
