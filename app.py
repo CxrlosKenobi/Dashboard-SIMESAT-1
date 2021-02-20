@@ -19,12 +19,12 @@ print(Style.RESET_ALL + Fore.GREEN + '[ ok ] ' + Style.RESET_ALL +
 #colors['text']
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-SAT-LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
+LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
 
 app = dash.Dash(
 	__name__,
-    external_stylesheets=[dbc.themes.BOOTSTRAP, SAT-LOGO],
-	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+    external_stylesheets=[dbc.themes.BOOTSTRAP, LOGO],
+	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
 )
 server = app.server
 app.title = "📡 SIMES-1"
