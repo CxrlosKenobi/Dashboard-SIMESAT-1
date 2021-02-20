@@ -15,6 +15,7 @@ init(autoreset=True)
 print(Style.RESET_ALL + Fore.GREEN + '[ ok ] ' + Style.RESET_ALL +
     'Initializing script ...')
 
+
 #colors = {'background': '#111111', 'text': '#7FDBFF'}
 #colors['text']
 
@@ -27,16 +28,19 @@ app = dash.Dash(
 	meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}]
 )
 server = app.server
-app.title = "📡 SIMES-1"
+app.title = "SIMES-1"
 
 app.layout = html.Div([
     html.Div([
-        html.Div([
-            html.P('Container title')
+        html.P([
+            'Container title'
         ], className='sign'),
-        html.Div([
-            html.H1('Text')
+        html.H1([
+            'Text'
         ], className='un'),
+        html.A([
+            'Go to'
+        ], className='submit')
     ], className='main'),
     html.Div([
         html.Img(src=app.get_asset_url('SIMES_white.png'), className='logo')
