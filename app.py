@@ -15,8 +15,8 @@ init(autoreset=True)
 print(Style.RESET_ALL + Fore.GREEN + '[ ok ] ' + Style.RESET_ALL +
     'Initializing script ...')
 
-colors = {'background': '#111111', 'text': '#7FDBFF'}
-colors['text']
+#colors = {'background': '#111111', 'text': '#7FDBFF'}
+#colors['text']
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
 LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
@@ -28,6 +28,15 @@ app = dash.Dash(
 )
 server = app.server
 app.title = "📡 SIMES-1"
+
+app.layout = html.Div([
+    html.Div([
+
+    ]),
+    html.Div([
+        html.Img(src=app.get_asset_url('SIMES_white.png'), className='logo')
+    ])
+])
 
 """
 app.layout = html.Div([

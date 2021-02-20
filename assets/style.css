@@ -1,85 +1,13 @@
 body {
-  font-family: 'proxima-nova', sans-serif;
   background-color: #061E44;
+  background-image: url('dashboard-shot-blur.png');
+  font-family: 'proxima-nova', sans-serif;
 }
 
 h6 {
   margin-top: 0;
 }
 
-
-/* This creates a skinny side bar fixed to the left of the page */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 6rem;
-  padding: 2rem 1rem;
-  background-color: #14305D;
-  z-index: 1050;
-  box-shadow:4px 7px 10px rgba(0,0,0,.4);
-  transition: width 0.1s ease-in-out;
-}
-/* when the user hovers on the sidebar, expand it */
-.sidebar:hover {
-  width: 18rem;
-}
-
-/* make sure the contents of the navlink don't wrap when navbar collapses */
-.sidebar .nav-link {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* fix the width of the icons */
-/* distance between icons and text */
-.sidebar .nav-link i {
-  width: 2rem;
-}
-
-/* hide the navlink labels by default */
-.sidebar .nav-link span {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out;
-}
-
-/* when the sidebar is hovered, reveal the labels */
-.sidebar:hover .nav-link span {
-  visibility: visible;
-  opacity: 0.8;
-}
-
-/* container for the sidebar header. make sure the contents don't wrap when
- * the sidebar is collapsed.
- */
-.sidebar-header {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-  color: #C4CDD5;
-}
-
-/* position the header relative to the logo and hide by default */
-.sidebar-header h1 {
-  opacity: 0;
-  margin-left: 2rem;
-  margin-bottom: 0;
-  transition: opacity 0.1s ease-in-out;
-}
-
-/* reveal the header when the sidebar is toggled */
-.sidebar:hover .sidebar-header h2 {
-  opacity: 1;
-}
-.sidebar__header__text--grey {
-  color: #FFF;
-  text-decoration: none;
-}
 
 /* position the content relative to the collapsed sidebar */
 .content {
@@ -88,6 +16,12 @@ h6 {
   padding: 2rem 1rem;
 }
 
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
 
 .app__container {
     margin: 3.125% 5.125%;
