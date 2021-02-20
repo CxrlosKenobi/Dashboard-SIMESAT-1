@@ -19,7 +19,7 @@ print(Style.RESET_ALL + Fore.GREEN + '[ ok ] ' + Style.RESET_ALL +
 #colors['text']
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
+SAT-LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
 
 app = dash.Dash(
 	__name__,
