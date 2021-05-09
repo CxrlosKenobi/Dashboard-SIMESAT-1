@@ -36,8 +36,6 @@ colors['text']
 # 1000 miliseconds = 1 second
 GRAPH_INTERVAL = os.environ.get("GRAPH_INTERVAL", 1000)
 
-FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-LOGO = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/81/satellite_1f6f0.png"
 
 app = dash.Dash(
 	__name__,
@@ -194,8 +192,6 @@ sidebar = html.Div(
 )
 
 content = html.Div(id="page-content", className="content")
-
-server = app.server
 
 app_color = {"graph_bg": "#082255", "graph_line": "#007ACE"}
 
