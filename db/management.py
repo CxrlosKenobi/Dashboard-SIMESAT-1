@@ -21,11 +21,16 @@ cur.execute(
 CREATE TABLE data(
     timestamp VARCHAR(40),
     timeinsec VARCHAR(40),
-    bmp280 VARCHAR(40),
-    hdc1080 VARCHAR(40),
-    neo6m VARCHAR(40),
-    mpu9250 VARCHAR(40),
-    camera VARCHAR(40),
+    bmp280_te VARCHAR(40),
+    bmp280_pr VARCHAR(40),
+    hdc1080_te VARCHAR(40),
+    hdc1080_hu VARCHAR(40),
+    neo6m_la VARCHAR(40),
+    neo6m_lo VARCHAR(40),
+    neo6m_al VARCHAR(40),
+    mpu9250_ac VARCHAR(40),
+    mpu9250_gy VARCHAR(40),
+    mpu9250_ma VARCHAR(40),
     PRIMARY KEY (timestamp),
     UNIQUE (timestamp)
 );
@@ -41,11 +46,16 @@ db = SQLAlchemy()
 class Data(db.Model):
     timestamp = db.Column(db.String(40), primary_key=True, unique=True) 
     timeinsec = db.Column(db.String(40))
-    bmp280 = db.Column(db.String(40))
-    hdc1080 = db.Column(db.String(40))
-    neo6m = db.Column(db.String(40))
-    mpu9250 = db.Column(db.String(40))
-    camera = db.Column(db.String(10))
+    bmp280_te = db.Column(db.String(40))
+    bmp280_pr = db.Column(db.String(40))
+    hdc1080_te = db.Column(db.String(40))
+    hdc1080_hu = db.Column(db.String(40)) 
+    neo6m_la = db.Column(db.String(40))
+    neo6m_lo = db.Column(db.String(40))
+    neo6m_al = db.Column(db.String(40))
+    mpu9250_ac = db.Column(db.String(40))
+    mpu9250_gy = db.Column(db.String(40))
+    mpu9250_ma = db.Column(db.String(40))
 
 Data_tbl = Table('data', Data.metadata)
 
@@ -53,32 +63,37 @@ Data_tbl = Table('data', Data.metadata)
 def create_data_table():
     Data.metadata.create_all(engine)
 
-def add_data(timestamp, timeinsec, bmp280, hdc1080, neo6m, mpu9250, camera):
+def add_data(timestamp, timeinsec, bmp280_te, bmp280_pr, hdc1080_te, hdc1080_hu, neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac, mpu9250_gy, mpu9250_ma):
     ins = Data_tbl.insert().values(
         timestamp=timestamp,
         timeinsec=timeinsec,
-        bmp280=bmp280,
-        hdc1080=hdc1080,
-        neo6m=neo6m,
-        mpu9250=mpu9250,
-        camera=camera
+        bmp280_te=bmp280_te,
+        bmp280_pr=bmp280_pr,
+        hdc1080_te=hdc1080_te, 
+        hdc1080_hu=hdc1080_hu,
+        neo6m_la=neo6m_la, 
+        neo6m_lo=neo6m_lo, 
+        neo6m_al=neo6m_al,
+        mpu9250_ac=mpu9250_ac, 
+        mpu9250_gy=mpu9250_gy, 
+        mpu9250_ma=mpu9250_ma 
     )
     conn = engine.connect()
     conn.execute(ins)
     conn.close()
 
-def del_data(code):
-    delete = Data_tbl.delete().where(Data_tbl.c.timestamp == timestamp)
-    conn = engine.connect()
-    conn.execute(delete)
-    conn.close()
+# def del_data(code):
+#     delete = Data_tbl.delete().where(Data_tbl.c.timestamp == timestamp)
+#     conn = engine.connect()
+#     conn.execute(delete)
+#     conn.close()
 
 
-def show_data():
-    select_st = select([Data_tbl.c.timestamp, Data_tbl.c.timeinsec, Data_tbl.c.bmp280, Data_tbl.c.hdc1080, Data_tbl.c.neo6m, Data_tbl.c.mpu9250, Data_tbl.c.camera])
-    conn = engine.connect()
-    rs = conn.execute(select_st)
-    for row in rs:
-        print(row)
+# def show_data():
+#     select_st = select([Data_tbl.c.timestamp, Data_tbl.c.timeinsec, Data_tbl.c.bmp280, Data_tbl.c.hdc1080, Data_tbl.c.neo6m, Data_tbl.c.mpu9250, Data_tbl.c.camera])
+#     conn = engine.connect()
+#     rs = conn.execute(select_st)
+#     for row in rs:
+#         print(row)
 
-    conn.close()
+#     conn.close()
