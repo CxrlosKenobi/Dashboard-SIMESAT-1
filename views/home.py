@@ -157,6 +157,7 @@ def update_hdc(n):
     df = get_hdc_data(total_time - 200, total_time)
 
     trace = dict(
+        name='',
         type="scatter",
         y=df["hdc1080_te"],
         line={"color": "#42C4F7"},
@@ -168,7 +169,7 @@ def update_hdc(n):
         font={"color": "#fff"},
         height=570,
         autosize=True,
-        showlegend=False,
+        showlegend=True,
         xaxis={
             "range": [0, 200],
             "showline": True,

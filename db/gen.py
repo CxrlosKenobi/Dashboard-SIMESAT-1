@@ -11,9 +11,6 @@ from api import get_current_time
 conn = sqlite3.connect('data.db')
 cur = conn.cursor()
 
-#   Create packet prototype
-# prot_pckt = f'{now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac};{mpu9250_gy};{mpu9250_ma}'
-
 #   Example of packet's format
 # packet = '08-05,14:57:21;15512;38.66,950.60;36.8,29.1;-36.121,-71.814,190.985;-0.00179,0.007725,1.001726;-0.00179,0.007725,1.001726;-0.00179,0.007725,1.001726'
 # 08-05,14:57:21 ; 15512 ; 38.66,950.60 ; 36.8,29.1 ; -36.121,-71.814,190.985 ; -0.00179,0.007725,1.001726 ; -0.00179,0.007725,1.001726 ; -0.00179, 0.007725,1.001726
