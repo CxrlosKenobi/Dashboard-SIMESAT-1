@@ -80,7 +80,7 @@ layout = html.Div([
                     )
                 ]),
                 dcc.Graph(
-                    id='GY91-live',
+                    id='GY91-random',
                     figure=dict(
                         layout=dict(
                             plot_bgcolor=app_color['graph_bg'],
@@ -89,7 +89,7 @@ layout = html.Div([
                     ),
                 ),
                 dcc.Interval(
-                    id='GY91-update',
+                    id='GY91-random-update',
                     interval=int(GRAPH_INTERVAL),
                     n_intervals=0
                 ),
@@ -105,7 +105,7 @@ layout = html.Div([
                 )]
             ),
             dcc.Graph(
-                id='BMP280-live',
+                id='BMP280-random',
                 figure=dict(
                     layout=dict(
                         plot_bgcolor=app_color['graph_bg'],
@@ -115,7 +115,7 @@ layout = html.Div([
                 )
             ),
             dcc.Interval(
-                id='BMP280-update',
+                id='BMP280-random-update',
                 interval=int(GRAPH_INTERVAL),
                 n_intervals=0
             ),
@@ -128,7 +128,7 @@ layout = html.Div([
                 )
             ]),
             dcc.Graph(
-                id='HDC-live',
+                id='HDC-random',
                 figure=dict(
                     layout=dict(
                         plot_bgcolor=app_color['graph_bg'],
@@ -137,7 +137,7 @@ layout = html.Div([
                 )
             ),
             dcc.Interval(
-                id='HDC-update',
+                id='HDC-random-update',
                 interval=int(GRAPH_INTERVAL),
                 n_intervals=0
             ),
@@ -146,7 +146,7 @@ layout = html.Div([
 ], className='app__container')
 
 @app.callback(
-    Output('GY91-live', 'figure'), [Input('GY91-update', 'n_intervals')]
+    Output('GY91-random', 'figure'), [Input('GY91-random-update', 'n_intervals')]
 )
 def update_bmp(n):
     total_time = get_current_time()
@@ -208,7 +208,7 @@ def update_bmp(n):
     return {'data': [trace0, trace1, trace2], 'layout': layout}
 
 @app.callback(
-    Output('HDC-live', 'figure'), [Input('HDC-update', 'n_intervals')]
+    Output('HDC-random', 'figure'), [Input('HDC-random-update', 'n_intervals')]
 )
 def update_hdc(n):
     total_time = get_current_time()
@@ -262,7 +262,7 @@ def update_hdc(n):
     return {'data': [trace0, trace1], 'layout': layout}
 
 @app.callback(
-    Output('BMP280-live', 'figure'), [Input('BMP280-update', 'n_intervals')]
+    Output('BMP280-random', 'figure'), [Input('BMP280-random-update', 'n_intervals')]
 )
 def update_bmp(n):
     total_time = get_current_time()

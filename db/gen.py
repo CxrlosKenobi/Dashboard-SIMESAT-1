@@ -43,12 +43,12 @@ for i in range(1, 1200):
     timestamp = now.strftime('%d/%m, %H:%M:%S')
     timeinsec = get_current_time()
     bmp_280 = 0
-    bmp280_pr = random.randint(0, 100)
-    bmp280_te = random.randint(1, 100)
+    bmp280_pr = random.randint(953, 980)
+    bmp280_te = random.randint(20, 22)
 
     hdc1080 = 0
     hdc1080_hu = random.randint(0, 100)
-    hdc1080_te = random.randint(1, 100)
+    hdc1080_te = random.randint(20, 22)
 
     neo6m = 0
     neo6m_la = 0
