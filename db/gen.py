@@ -43,22 +43,22 @@ for i in range(1, 700):
     timestamp = now.strftime('%d/%m, %H:%M:%S')
     timeinsec = get_current_time()
     bmp_280 = 0
-    bmp280_pr = 0
+    bmp280_pr = random.randint(0, 100)
+    bmp280_te = random.randint(1, 100)
 
     hdc1080 = 0
-    hdc1080_hu = 0
+    hdc1080_hu = random.randint(0, 100)
+    hdc1080_te = random.randint(1, 100)
 
     neo6m = 0
     neo6m_la = 0
     neo6m_lo = 0
     neo6m_al = 0
 
-    mpu9250_ac = 0
-    mpu9250_gy = 0
-    mpu9250_ma = 0
+    mpu9250_ac = random.randint(0, 100)
+    mpu9250_gy = random.randint(0, 100)
+    mpu9250_ma = random.randint(0, 100)
 
-    bmp280_te = random.randint(1, 100)
-    hdc1080_te = random.randint(1, 100)
     
     packet = f"""{now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac};{mpu9250_gy};{mpu9250_ma}"""
 
