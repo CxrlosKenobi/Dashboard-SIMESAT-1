@@ -1,5 +1,5 @@
 body {
-    font-family: 'proxima-nova', sans-serif;
+    font-family: "D-DIN Bold", Sans-serif;
     background-color: #061E44;
 }
   
@@ -100,6 +100,7 @@ h6 {
 }
 
 .app__header__title {
+    font-family: "D-DIN Bold", Sans-serif !important;
     letter-spacing: 0.23rem;
 }
 
@@ -182,6 +183,7 @@ h6 {
         order: 0;
     }
     .app__header__title {
+        font-family: "D-DIN Bold", Sans-serif;
         font-size: 1.5em;
         padding-top: 15px;
     }

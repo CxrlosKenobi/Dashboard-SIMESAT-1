@@ -36,7 +36,7 @@ cur = conn.cursor()
 # mpu9250_gy = float(packet.split(';')[6])
 # mpu9250_ma = float(packet.split(';')[7])
 
-for i in range(1, 700):
+for i in range(1, 1200):
     print(f'[ {i} ] Running ...')
     now = datetime.now()
     #   Asign random values to test

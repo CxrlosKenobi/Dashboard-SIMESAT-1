@@ -11,6 +11,7 @@ import os
 inp = input('\nAre you sure to delete data.db ? y/n: ')
 if inp == 'n':
     exit()
+
 os.system('rm -rf data.db && touch data.db')
 conn = sqlite3.connect('data.db')
 cur = conn.cursor()
