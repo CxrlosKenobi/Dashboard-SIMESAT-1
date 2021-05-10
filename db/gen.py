@@ -55,17 +55,24 @@ for i in range(1, 1200):
     neo6m_lo = 0
     neo6m_al = 0
 
-    mpu9250_ac = random.randint(0, 100)
-    mpu9250_gy = random.randint(0, 100)
-    mpu9250_ma = random.randint(0, 100)
+    mpu9250_ac_x = random.randint(0, 100)
+    mpu9250_ac_y = random.randint(0, 100)
+    mpu9250_ac_z = random.randint(0, 100)
+    mpu9250_gy_x = random.randint(0, 100)
+    mpu9250_gy_y = random.randint(0, 100)
+    mpu9250_gy_z = random.randint(0, 100)
+    mpu9250_ma_x = random.randint(0, 100)
+    mpu9250_ma_y = random.randint(0, 100)
+    mpu9250_ma_z = random.randint(0, 100)
 
     
-    packet = f"""{now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac};{mpu9250_gy};{mpu9250_ma}"""
+    packet = f"""
+    {now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac_x};{mpu9250_ac_y};{mpu9250_ac_z};{mpu9250_gy_x};{mpu9250_gy_y};{mpu9250_gy_z};{mpu9250_ma_x};{mpu9250_ma_y};{mpu9250_ma_z}"""
 
     cur.execute('''
-        INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
+        INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
         (timestamp, timeinsec, bmp280_te, bmp280_pr, hdc1080_te, hdc1080_hu, 
-        neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac, mpu9250_gy, mpu9250_ma))
+        neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac_x, mpu9250_ac_y, mpu9250_ac_z, mpu9250_gy_x, mpu9250_gy_y, mpu9250_gy_z, mpu9250_ma_x, mpu9250_ma_y, mpu9250_ma_z))
     t.sleep(1)
     conn.commit()
 
