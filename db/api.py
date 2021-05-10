@@ -17,7 +17,7 @@ def get_bmp_pr_data(start, end):
     con = sqlite3.connect(str(DB_FILE))
     statement = f'SELECT bmp280_pr FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
     df = pd.read_sql_query(statement, con)
-    return df
+    return df       
 
 def get_hdc_te_data(start, end):
     con = sqlite3.connect(str(DB_FILE))
@@ -31,9 +31,21 @@ def get_hdc_hu_data(start, end):
     df = pd.read_sql_query(statement, con)
     return df
 
-def get_mpu9250_ac_data(start, end):
+def get_mpu9250_ac_x_data(start, end):
     con = sqlite3.connect(str(DB_FILE))
-    statement = f'SELECT mpu9250_ac FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
+    statement = f'SELECT mpu9250_ac_x FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
+    df = pd.read_sql_query(statement, con)
+    return df
+
+def get_mpu9250_ac_y_data(start, end):
+    con = sqlite3.connect(str(DB_FILE))
+    statement = f'SELECT mpu9250_ac_y FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
+    df = pd.read_sql_query(statement, con)
+    return df
+
+def get_mpu9250_ac_z_data(start, end):
+    con = sqlite3.connect(str(DB_FILE))
+    statement = f'SELECT mpu9250_ac_z FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
     df = pd.read_sql_query(statement, con)
     return df
 
