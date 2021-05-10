@@ -8,7 +8,7 @@ import pandas as pd
 
 from api import get_current_time
 
-conn = sqlite3.connect('data.db')
+conn = sqlite3.connect('datarand.db')
 cur = conn.cursor()
 
 for i in range(1, 1200):
