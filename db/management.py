@@ -124,7 +124,7 @@ inp = input('\nAre you sure to delete datarand.db ? y/n: ')
 if inp == 'n':
     exit()
 
-os.system('rm -rf data.db && touch datarand.db')
+os.system('rm -rf datarand.db && touch datarand.db')
 conn = sqlite3.connect('datarand.db')
 cur = conn.cursor()
 print('\n[ ok ] Now connected to the rand database!')
