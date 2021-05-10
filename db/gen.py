@@ -11,31 +11,6 @@ from api import get_current_time
 conn = sqlite3.connect('data.db')
 cur = conn.cursor()
 
-#   Example of packet's format
-# packet = '08-05,14:57:21;15512;38.66,950.60;36.8,29.1;-36.121,-71.814,190.985;-0.00179,0.007725,1.001726;-0.00179,0.007725,1.001726;-0.00179,0.007725,1.001726'
-# 08-05,14:57:21 ; 15512 ; 38.66,950.60 ; 36.8,29.1 ; -36.121,-71.814,190.985 ; -0.00179,0.007725,1.001726 ; -0.00179,0.007725,1.001726 ; -0.00179, 0.007725,1.001726
-
-#   Decoding
-# timestamp = packet.split(';')[0]
-# timeinsec = packet.split(';')[1]
-
-# bmp_280 = packet.split(';')[2]
-# bmp_280_te = float(bmp_280.split(',')[0])
-# bmp_280_pr = float(bmp_280.split(',')[1])
-
-# hdc1080 = packet.split(';')[3]
-# hdc1080_te = float(hdc1080.split(',')[0])
-# hdc1080_hu = float(hdc1080.split(',')[1])
-
-# neo6m = packet.split(';')[4]
-# neo6m_la = float(neo6m.split(',')[0])
-# neo6m_lo = float(neo6m.split(',')[1])
-# neo6m_al = float(neo6m.split(',')[2])
-
-# mpu9250_ac = float(packet.split(';')[5])
-# mpu9250_gy = float(packet.split(';')[6])
-# mpu9250_ma = float(packet.split(';')[7])
-
 for i in range(1, 1200):
     print(f'[ {i} ] Running ...')
     now = datetime.now()
@@ -55,6 +30,10 @@ for i in range(1, 1200):
     neo6m_lo = 0
     neo6m_al = 0
 
+    mpu9250_ac = random.randint(-10, 20)
+    mpu9250_gy = random.randint(-10, 20)
+    mpu9250_ma = random.randint(-10, 20)
+
     mpu9250_ac_x = random.randint(0, 100)
     mpu9250_ac_y = random.randint(0, 100)
     mpu9250_ac_z = random.randint(0, 100)
@@ -66,8 +45,7 @@ for i in range(1, 1200):
     mpu9250_ma_z = random.randint(0, 100)
 
     
-    packet = f"""
-    {now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac_x};{mpu9250_ac_y};{mpu9250_ac_z};{mpu9250_gy_x};{mpu9250_gy_y};{mpu9250_gy_z};{mpu9250_ma_x};{mpu9250_ma_y};{mpu9250_ma_z}"""
+    packet = f"""{now.strftime('%d/%m, %H:%M:%S')};{get_current_time()};{bmp280_te},{bmp280_pr};{hdc1080_te},{hdc1080_hu};{neo6m_la},{neo6m_lo},{neo6m_al};{mpu9250_ac_x};{mpu9250_ac_y};{mpu9250_ac_z};{mpu9250_gy_x};{mpu9250_gy_y};{mpu9250_gy_z};{mpu9250_ma_x};{mpu9250_ma_y};{mpu9250_ma_z}"""
 
     cur.execute('''
         INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 

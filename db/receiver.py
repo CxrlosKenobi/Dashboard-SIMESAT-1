@@ -56,32 +56,33 @@ for i in range(1400):
     timestamp = packet[0]
     timeinsec = int(packet[1])
 
-    bmp_280 = packet[2]
-    bmp_280_pr = float(bmp_280.split(',')[0])
-    bmp_280_al = float(bmp_280.split(',')[1])
+    bmp280 = packet[2]
+    bmp280_pr = float(bmp280.split(',')[0])
+    bmp280_te = float(bmp280.split(',')[1])
 
     hdc1080 = packet[3]
     hdc1080_te = float(hdc1080.split(',')[0])
     hdc1080_hu = float(hdc1080.split(',')[1])
 
     neo6m = packet[4]
-    neo6m_la = 01
-    neo6m_lo = 01
+    neo6m_la = '01'
+    neo6m_lo = '01'
+    neo6m_al = '01'
     # neo6m_la = float(neo6m.split(',')[0])
     # neo6m_lo = float(neo6m.split(',')[1])
 
-    mpu9250_ac = packet[5]
-    mpu9250_gy = packet[6]
-    mpu9250_ma = packet[7]
+    mpu9250_ac = str(packet[5])
+    mpu9250_gy = str(packet[6])
+    mpu9250_ma = str(packet[7])
 
     for i in subdelete:
         mpu9250_ac = mpu9250_ac.replace(f"{i}", '')
         mpu9250_gy = mpu9250_gy.replace(f"{i}", '')
         mpu9250_ma = mpu9250_ma.replace(f"{i}", '')
 
-        mpu9250_ac = mpu9250_ac.split(',')
-        mpu9250_gy = mpu9250_gy.split(',')
-        mpu9250_ma = mpu9250_ma.split(',')
+    mpu9250_ac = mpu9250_ac.split(',')
+    mpu9250_gy = mpu9250_gy.split(',')
+    mpu9250_ma = mpu9250_ma.split(',')
 
     mpu9250_ac_x = float(mpu9250_ac[0])
     mpu9250_ac_y = float(mpu9250_ac[1])
@@ -98,7 +99,7 @@ for i in range(1400):
 
     cur.execute('''
         INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
-        (timestamp, timeinsec, bmp280_te, bmp280_pr, hdc1080_te, hdc1080_hu, 
+        (timestamp, timeinsec, bmp280_pr, bmp280_te, hdc1080_te, hdc1080_hu, 
         neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac_x, mpu9250_ac_y, mpu9250_ac_z, mpu9250_gy_x, mpu9250_gy_y, mpu9250_gy_z, mpu9250_ma_x, mpu9250_ma_y, mpu9250_ma_z))
     t.sleep(1)
     conn.commit()
