@@ -6,7 +6,7 @@ import dash
 
 from server import app, server
 from views import home, sidebar, debug
-
+import sys
 
 content = html.Div(id="page-content", className="content")
 
@@ -34,3 +34,28 @@ def render_page_content(pathname):
 
 if __name__ == '__main__':
     app.run_server(host='127.0.0.2', debug=True)
+
+# Usage and args commands #
+tab = '    '
+try:
+    if sys.argv[1] == '--dev':
+        if __name__ == '__main__':
+            app.run_server(host='192.168.10.68', debug=True)
+#            app.run_server(debug=True)
+
+    elif sys.argv[1] == '--public':
+        if __name__ == '__main__':
+            app.run_server(host='192.168.10.68', debug=True, dev_tools_ui=False)
+#            app.run_server(debug=True, dev_tools_ui=False)
+
+    else:
+        print(f'\nUsage:\n  python3 app.py [options]\n\nOptions:\n\
+          --dev{tab}Developer mode with UI Dev Tools.\n\
+          --public{tab}Presenter mode without Dev Tools & Debug.\n')
+        exit()
+
+except IndexError:
+    print(f'\nUsage:\n  python3 app.py [options]\n\nOptions:\n\
+      --dev   {tab}Developer mode with UI Dev Tools.\n\
+      --public{tab}Presenter mode without Dev Tools & Debug.\n')
+    exit()
