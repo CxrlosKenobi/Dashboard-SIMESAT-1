@@ -22,7 +22,7 @@ layout = html.Div([
                 className='app__header__title'
             ),
             html.P(
-                'Esta web-app grafica los datos obtenidos del nano satélite a partir de su base de datos.',
+                'Esta web-app grafica los datos obtenidos del nano satélite a partir de su base de datos SQL.',
                 className='app__header__title--grey',
             ),
         ], className='app__header__desc'),
@@ -241,7 +241,7 @@ def update_hdc(n):
         mode="lines",
     )
     trace1 = dict(
-        name='Humedad ()',
+        name='Humedad (%)',
         type="scatter",
         y=df1["hdc1080_hu"],
         line={"color": "#42C4F7"},

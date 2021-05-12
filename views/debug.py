@@ -21,13 +21,11 @@ layout = html.Div(
             [
                 html.Div(
                     [html.H4(
-                        'Demostration / Debug menu',
+                        'SIMES-1 CANSAT',
                         className='app__header__title'
                     ),
                     html.P(
-                    '''Charts display with random data for debug
-                    and set demo phase at each graph while the final
-                    code release is not concluded.''',
+                    '''Esta web-app, grafica los datos obtenidos en tiempo real del nano satélite a partir de su base de datos SQL.*''',
                     className='app__header__title--grey',
                     ),
                     ],
@@ -223,7 +221,7 @@ def update_hdc(n):
         mode="lines",
     )
     trace1 = dict(
-        name='Humedad ()',
+        name='Humedad (%)',
         type="scatter",
         y=df1["hdc1080_hu"],
         line={"color": "#42C4F7"},

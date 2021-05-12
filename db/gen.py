@@ -37,9 +37,11 @@ for i in range(1, 1200):
     mpu9250_ac_x = random.randint(0, 100)
     mpu9250_ac_y = random.randint(0, 100)
     mpu9250_ac_z = random.randint(0, 100)
+
     mpu9250_gy_x = random.randint(0, 100)
     mpu9250_gy_y = random.randint(0, 100)
     mpu9250_gy_z = random.randint(0, 100)
+
     mpu9250_ma_x = random.randint(0, 100)
     mpu9250_ma_y = random.randint(0, 100)
     mpu9250_ma_z = random.randint(0, 100)

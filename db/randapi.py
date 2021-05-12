@@ -49,6 +49,12 @@ def get_mpu9250_ac_z_data(start, end):
     df = pd.read_sql_query(statement, con)
     return df
 
+def get_mpu9250_ac_data(start, end):
+    con = sqlite3.connect(str(DB_FILE))
+    statement = f'SELECT mpu9250_ac FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
+    df = pd.read_sql_query(statement, con)
+    return df
+
 def get_mpu9250_gy_data(start, end):
     con = sqlite3.connect(str(DB_FILE))
     statement = f'SELECT mpu9250_gy FROM data WHERE timeinsec > {start} AND timeinsec <= {end};'
