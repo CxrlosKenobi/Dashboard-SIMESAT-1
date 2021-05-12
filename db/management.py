@@ -141,6 +141,9 @@ CREATE TABLE data(
     neo6m_la VARCHAR(40),
     neo6m_lo VARCHAR(40),
     neo6m_al VARCHAR(40),
+    mpu9250_ac VARCHAR(40),
+    mpu9250_gy VARCHAR(40),
+    mpu9250_ma VARCHAR(40),
     mpu9250_ac_x VARCHAR(40),
     mpu9250_ac_y VARCHAR(40),
     mpu9250_ac_z VARCHAR(40),
@@ -172,6 +175,9 @@ class Data(db.Model):
     neo6m_la = db.Column(db.String(40))
     neo6m_lo = db.Column(db.String(40))
     neo6m_al = db.Column(db.String(40))
+    mpu9250_ac = db.Column(db.String(40))
+    mpu9250_gy = db.Column(db.String(40))
+    mpu9250_ma = db.Column(db.String(40))
     mpu9250_ac_x = db.Column(db.String(40))
     mpu9250_ac_y = db.Column(db.String(40))
     mpu9250_ac_z = db.Column(db.String(40))
@@ -189,7 +195,7 @@ def create_data_table():
     Data.metadata.create_all(engine)
 
 def add_data(timestamp, timeinsec, bmp280_te, bmp280_pr, hdc1080_te, hdc1080_hu, 
-neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac_x, mpu9250_ac_y, mpu9250_ac_z, mpu9250_gy_x, 
+neo6m_la, neo6m_lo, neo6m_al, mpu9250_ac, mpu9250_gy, mpu9250_ma, mpu9250_ac_x, mpu9250_ac_y, mpu9250_ac_z, mpu9250_gy_x, 
 mpu9250_gy_y, mpu9250_gy_z, mpu9250_ma_x, mpu9250_ma_y, mpu9250_ma_z):
     ins = Data_tbl.insert().values(
         timestamp=timestamp,
@@ -201,6 +207,9 @@ mpu9250_gy_y, mpu9250_gy_z, mpu9250_ma_x, mpu9250_ma_y, mpu9250_ma_z):
         neo6m_la=neo6m_la, 
         neo6m_lo=neo6m_lo, 
         neo6m_al=neo6m_al,
+        mpu9250_ac=mpu9250_ac,
+        mpu9250_gy=mpu9250_gy,
+        mpu9250_ma=mpu9250_ma,
         mpu9250_ac_x=mpu9250_ac,
         mpu9250_ac_y=mpu9250_ac_y,
         mpu9250_ac_z=mpu9250_ac_z, 

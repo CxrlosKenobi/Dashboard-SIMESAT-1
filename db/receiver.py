@@ -105,11 +105,9 @@ while True:
         t.sleep(1)
         conn.commit()
 
-    cur.close()
-
-except UnicodeDecodeError:
-    print('[ warning ] UnicodeDecodeError ...')
-
+    except UnicodeDecodeError:
+        print('[ warning ] UnicodeDecodeError ...')
+    
 
 # (bytearray(b'12/05, 12:04:47;43487 ;  950.71,0.0 ; 26.5,30.5 ; NO DATA,NO DATA;[0.000837, 0.005063, 0.999529];[0.044686, 0.222887, -0.114986];[-1.341845, -0.183219, -0.222188]'), -55, '12/05, 12:04:47;43487;950.71,0.0;26.5,30.5;NO DATA,NO DATA;[0.000837, 0.005063, 0.999529];[0.044686, 0.222887, -0.114986];[-1.341845, -0.183219, -0.222188]')
 
