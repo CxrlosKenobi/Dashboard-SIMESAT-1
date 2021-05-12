@@ -45,7 +45,7 @@ try:
 
     elif sys.argv[1] == '--public':
         if __name__ == '__main__':
-            app.run_server(host='192.168.10.68', debug=True, dev_tools_ui=False)
+            app.run_server(host='192.168.10.68', debug=False, dev_tools_ui=False)
 #            app.run_server(debug=True, dev_tools_ui=False)
 
     else:
