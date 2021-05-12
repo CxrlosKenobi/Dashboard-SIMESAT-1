@@ -6,7 +6,7 @@ import dash
 
 from server import app, server
 from views import home, sidebar, debug
-from db.api import get_current_time, get_bmp_pr_data, get_hdc_te_data, get_hdc_hu_data, get_mpu9250_ac_x_data, get_mpu9250_ac_y_data, get_mpu9250_ac_z_data
+from db.randapi import get_current_time, get_bmp_pr_data, get_hdc_te_data, get_hdc_hu_data, get_mpu9250_ac_data, get_mpu9250_gy_data, get_mpu9250_ma_data
 from server import app
 import os
 

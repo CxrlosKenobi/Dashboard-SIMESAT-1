@@ -6,7 +6,7 @@ import dash
 
 from server import app, server
 from views import home, sidebar, debug
-from db.api import get_current_time, get_bmp_pr_data, get_hdc_te_data, get_hdc_hu_data, get_mpu9250_ac_x_data, get_mpu9250_ac_y_data, get_mpu9250_ac_z_data
+from db.api import get_current_time, get_bmp_pr_data, get_hdc_te_data, get_hdc_hu_data, get_mpu9250_gy_x_data, get_mpu9250_gy_y_data, get_mpu9250_gy_z_data
 from server import app
 import os
 
@@ -64,7 +64,7 @@ layout = html.Div([
         html.Div([
             html.Div([
                 html.H6(
-                    'Live GPS Feed',
+                    'BMP280 Live status',
                     className='graph__title'
                 )]
             ),
@@ -114,32 +114,31 @@ layout = html.Div([
 )
 def update_bmp(n):
     total_time = get_current_time()
-    df0 = get_mpu9250_ac_x_data(total_time - 200, total_time)
-    df1 = get_mpu9250_ac_y_data(total_time - 200, total_time)
-    df2 = get_mpu9250_ac_z_data(total_time - 200, total_time)
+    df0 = get_mpu9250_gy_x_data(total_time - 200, total_time)
+    df1 = get_mpu9250_gy_y_data(total_time - 200, total_time)
+    df2 = get_mpu9250_gy_z_data(total_time - 200, total_time)
 
     trace0 = dict(
-        name='X-Acelerómetro',
+        name='X-Giroscopio',
         type="scatter",
-        y=df0["mpu9250_ac_x"],
+        y=df0["mpu9250_gy_x"],
         line={"color": "#FF6600"},
         mode="lines",
     )
     trace1 = dict(
-        name='Y-Acelerómetro',
+        name='Y-Giroscopio',
         type="scatter",
-        y=df1["mpu9250_ac_y"],
+        y=df1["mpu9250_gy_y"],
         line={"color": "#4E00FF"},
         mode="lines",
     )
     trace2 = dict(
-        name='Z-Acelerómetro',
+        name='Z-Giroscopio',
         type="scatter",
-        y=df2["mpu9250_ac_z"],
+        y=df2["mpu9250_gy_z"],
         line={"color": "#42C4F7"},
         mode="lines",
     )
-    
     layout = dict(
         plot_bgcolor=app_color["graph_bg"],
         paper_bgcolor=app_color["graph_bg"],
@@ -158,8 +157,8 @@ def update_bmp(n):
         },
         yaxis={
             "range": [
-                min(min(df0["mpu9250_ac_x"]), min(df1['mpu9250_ac_y']), min(df2['mpu9250_ac_z'])),
-                max(max(df0["mpu9250_ac_x"]), max(df1['mpu9250_ac_y']), max(df2['mpu9250_ac_z'])),
+                min(min(df0["mpu9250_gy_x"]), min(df1['mpu9250_gy_y']), min(df2['mpu9250_gy_z'])),
+                max(max(df0["mpu9250_gy_x"]), max(df1['mpu9250_gy_y']), max(df2['mpu9250_gy_z'])),
             ],
             "showgrid": True,
             "showline": True,
