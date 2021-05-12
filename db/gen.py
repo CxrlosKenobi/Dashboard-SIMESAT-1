@@ -11,7 +11,7 @@ from api import get_current_time
 conn = sqlite3.connect('datarand.db')
 cur = conn.cursor()
 
-for i in range(1, 1400):
+for i in range(1, 1800):
     print(f'[ {i} ] Running ...')
     now = datetime.now()
     #   Asign random values to test
