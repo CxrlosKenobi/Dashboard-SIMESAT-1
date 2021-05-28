@@ -1,18 +1,11 @@
 import adafruit_rfm9x
 import digitalio
-import time as t
 import board
 import busio
 
 from datetime import datetime
-import datetime as dt
 import time as t
-import random
-import csv
 import sqlite3
-import pandas as pd
-
-from api import get_current_time
 
 def receivePackets():
     RADIO_FREQ_MHZ = 915.0
@@ -105,6 +98,5 @@ while True:
         t.sleep(1)
         conn.commit()
 
-    except (UnicodeDecodeError, IndexError):
-        print('\n[ ! ] Error with UnicodeDecode or IndexError ...')
-    
+    except (UnicodeDecodeError, IndexError, OSError):
+        print('\n[ ! ] Warning: Error, running anyways ...')
