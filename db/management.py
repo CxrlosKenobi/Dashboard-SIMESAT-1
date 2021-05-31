@@ -1,7 +1,6 @@
 from sqlalchemy import Table
 from sqlalchemy.sql import select
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash
 from config import engine
 
 import sqlite3

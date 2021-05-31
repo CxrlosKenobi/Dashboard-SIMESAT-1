@@ -155,6 +155,9 @@ def update_bmp(n):
             "ticktext": ["200", "150", "100", "50", "0"],
             "title": "Tiempo transcurrido (seg)",
         },
+        # percenMin = min(min(df0["mpu9250_gy_x"]), min(df1['mpu9250_gy_y']), min(df2['mpu9250_gy_z']))
+        # percenMax = max(max(df0["mpu9250_gy_x"]), max(df1['mpu9250_gy_y']), max(df2['mpu9250_gy_z']))
+
         yaxis={
             "range": [
                 min(min(df0["mpu9250_gy_x"]), min(df1['mpu9250_gy_y']), min(df2['mpu9250_gy_z'])),
