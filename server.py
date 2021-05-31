@@ -1,7 +1,7 @@
 import dash
 import dash_html_components
 import dash_bootstrap_components as dbc
- from config import config
+#from db.config import config
 import os
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
