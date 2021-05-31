@@ -8,7 +8,6 @@ dash_bootstrap_components==0.11.3
 gunicorn==19.0.0
 Flask-SQLAlchemy==2.5.1
 SQLAlchemy==1.4.7
-Werkzeug==1.0.1
 pyserial==3.5
 pynmea2==1.15.0
 adafruit-circuitpython-rfm9x==2.1.4
